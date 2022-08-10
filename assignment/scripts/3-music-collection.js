@@ -33,15 +33,16 @@ console.log(collection);
 //   - Take in an array parameter. (This allows3 it to be reused to show any collection, like the results from the find or search.)
 //   - Console.log the number of items in the array.
 //   - Loop over the array and console.log each album's information formatted like: `TITLE by ARTIST, published in YEAR`.
+console.log('length before:', collection.length)
 function showCollection(collection) {
-    console.log(collection.length);
+    console.log('length in showCollection:', collection.length);
     for (let record of collection){
         console.log(`${record.title} by ${record.artist}, published in ${record.year}.`)
     }
 }
 // - Test the `showCollection` function.
-showCollection('expect length 7 and then collection', collection);
-//showCollection('expect error', showCollection(madeUpCollection));
+showCollection(collection);
+
 
 
 // - Add a function named `findByArtist`. This function should:
@@ -49,9 +50,20 @@ showCollection('expect length 7 and then collection', collection);
 //   - Create an array to hold any results, empty to start
 //   - Loop through the `collection` and add any objects with a matching artist to the array.
 //   - Return the array with the matching results. If no results are found, return an empty array.
+function findByArtist(artist, collection) {
+    let sameArtist = [];
+    for (let record of collection) {
+        if (record.artist === artist) {
+            sameArtist.push(record);
+        }
+    }
+    return sameArtist;
+}
+
 
 // - Test the `findByArtist` function. Make sure to test with an artist you know is in the collection, as well as an artist you know is not in your collection. Check that for artists with multiple matches, all are found.
-
+console.log(findByArtist('Logic', collection));
+console.log(findByArtist('Atmosphere', collection))
 // > When testing your functions, write all tests in the JavaScript file!
 
 
