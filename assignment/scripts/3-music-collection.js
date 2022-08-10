@@ -21,9 +21,16 @@ function addToCollection(title, artist, yearPublished) {
 //   - Add 6 albums to your collection. Aim to have a mix of both same and different artists and published years. (Feel free to share your musical interests, or make stuff up. Totally fine either way.)
 //   - Console.log each album as added using the returned value.
 //   - After all are added, console.log the `collection` array.
-
+console.log(addToCollection('Better Nature', 'Silversun Pickups', 2015));
+console.log(addToCollection('Neck Of The Woods', 'Silversun Pickups', 2012));
+console.log(addToCollection('Bobby Tarantino', 'Logic', 2016));
+console.log(addToCollection('Shadows On The Sun', 'Brother Ali', 2003));
+console.log(addToCollection('Crimson', 'Alkaline Trio', 2005));
+console.log(addToCollection('Riot!', 'Paramore', 2007));
+console.log(addToCollection('Mr. Morale And The Big Steppers', 'Kendrick Lamar', 2022));
+console.log(collection);
 // - Add a function named `showCollection`. This function should:
-//   - Take in an array parameter. (This allows it to be reused to show any collection, like the results from the find or search.)
+//   - Take in an array parameter. (This allows3 it to be reused to show any collection, like the results from the find or search.)
 //   - Console.log the number of items in the array.
 //   - Loop over the array and console.log each album's information formatted like: `TITLE by ARTIST, published in YEAR`.
 
@@ -64,4 +71,3 @@ function addToCollection(title, artist, yearPublished) {
 //     TITLE by ARTIST, published in YEAR:
 //     1. NAME: DURATION
 //     2. NAME: DURATION
-```
