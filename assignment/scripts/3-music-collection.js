@@ -7,12 +7,13 @@ let collection = [];
 //   - Add the new object to the end of the `collection` array
 //   - Return the newly created object
 
-function addToCollection(title, artist, yearPublished) {
+function addToCollection(title, artist, yearPublished, tracks = []) {
     const album = {
         title: title,
         artist: artist,
-        year: yearPublished
-    };
+        year: yearPublished,
+        trackList: tracks
+    }
     collection.push(album);
     return album;
 }
@@ -21,7 +22,9 @@ function addToCollection(title, artist, yearPublished) {
 //   - Add 6 albums to your collection. Aim to have a mix of both same and different artists and published years. (Feel free to share your musical interests, or make stuff up. Totally fine either way.)
 //   - Console.log each album as added using the returned value.
 //   - After all are added, console.log the `collection` array.
-console.log(addToCollection('Better Nature', 'Silversun Pickups', 2015));
+
+
+console.log(addToCollection('Better Nature', 'Silversun Pickups', 2015, [['Cradle (Better Nature)', '5:21'], ['Connection', '4:34']]));
 console.log(addToCollection('Neck Of The Woods', 'Silversun Pickups', 2012));
 console.log(addToCollection('Bobby Tarantino', 'Logic', 2016));
 console.log(addToCollection('Shadows On The Sun', 'Brother Ali', 2003));
@@ -37,7 +40,7 @@ console.log('length before:', collection.length)
 function showCollection(collection) {
     console.log('length in showCollection:', collection.length);
     for (let record of collection){
-        console.log(`${record.title} by ${record.artist}, published in ${record.year}.`)
+        console.log(`${record.title} by ${record.artist}, published in ${record.year}, track list:`, record.trackList)
     }
 }
 // - Test the `showCollection` function.
