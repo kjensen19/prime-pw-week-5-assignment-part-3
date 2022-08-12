@@ -72,13 +72,32 @@ console.log(findByArtist('Atmosphere', collection))
 // - Create a function called `search`. This function should:
 //   - Take an input parameter for a search criteria object. Create your solution based on a search object that has these properties:
 //   ```
+function search(criteria = {}, collection) {
+    let retArr = [];
+    if (criteria.artist === undefined) {
+        return collection
+    } else {
+        for (let album of collection) {
+            if (album.artist === criteria.artist && album.year === criteria.year){
+                retArr.push(album);
+            }
+        }
+    } return retArr;
+};
 //   { artist: 'Ray Charles', year: 1957 }
 //   ```
 //   - The returned output from `search` should meet these requirements:
 //     - Return a new array of all items in the `collection` matching *all* of the search criteria.
 //     - If no results are found, return an empty array.
 //     - If there is no search object or an empty search object provided as input, then return all albums in the `collection`.
-
+console.log('should return Logic album');
+console.log(search({artist: 'Logic', year: 2016}, collection));
+console.log('Should return nothing');
+console.log(search({artist: 'Cold War Kids', year: 2022}, collection));
+console.log('Should return nothing');
+console.log(search({artist: 'Silversun Pickups', year: 2002}, collection));
+console.log('Should return collection');
+console.log(search({}, collection))
 // - Add an array of `tracks` to your album objects. Each track should have a `name` and `duration`. You will need to update the functions to support this new property:
 //   - Update the `addToCollection` function to also take an input parameter for the array of tracks.
 //   - Update `search` to allow a `trackName` search criteria.
