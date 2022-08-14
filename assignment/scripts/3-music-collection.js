@@ -116,6 +116,26 @@ console.log(search({}, collection))
 //     TITLE by ARTIST, published in YEAR:
 //     1. NAME: DURATION
 //     2. NAME: DURATION
+function addTrack(library) {
+    let record = prompt('What album? ');
+    for (let album of library) {
+        if (album.title == record) {
+            let trackNum = prompt("What is the track number? ")
+            let trackName = prompt('What is the song? ');
+            let trackDur = prompt('How long is it? ');
+            if (album.trackList[0] === 'None Listed'){
+                album.trackList = [trackNum + '. ' + trackName + ': ' + trackDur]
+                return album;
+            }
+            else {
+                album.trackList.push([trackNum + '. ' + trackName + ' ' + trackDur])
+                return album
+            }
+        }
+    }
+    return console.log('The track could not be added')
+}
 
+addTrack(collection)
 
 
