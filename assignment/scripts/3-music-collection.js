@@ -24,7 +24,7 @@ function addToCollection(title, artist, yearPublished, tracks = ['None Listed'])
 //   - After all are added, console.log the `collection` array.
 
 
-console.log(addToCollection('Better Nature', 'Silversun Pickups', 2015, [['1. Cradle (Better Nature) : 5:21'], ['2. Connection : 4:34']]));
+console.log(addToCollection('Better Nature', 'Silversun Pickups', 2015, ['1. Cradle (Better Nature) : 5:21', '2. Connection : 4:34']));
 console.log(addToCollection('Neck Of The Woods', 'Silversun Pickups', 2012));
 console.log(addToCollection('Bobby Tarantino', 'Logic', 2016));
 console.log(addToCollection('Shadows On The Sun', 'Brother Ali', 2003));
@@ -65,8 +65,8 @@ function findByArtist(artist, collection) {
 
 
 // - Test the `findByArtist` function. Make sure to test with an artist you know is in the collection, as well as an artist you know is not in your collection. Check that for artists with multiple matches, all are found.
-console.log(findByArtist('Logic', collection));
-console.log(findByArtist('Atmosphere', collection))
+console.log('Should return Logic album', findByArtist('Logic', collection));
+console.log('No return', findByArtist('Atmosphere', collection))
 // > When testing your functions, write all tests in the JavaScript file!
 
 
@@ -76,15 +76,17 @@ console.log(findByArtist('Atmosphere', collection))
 //   - Take an input parameter for a search criteria object. Create your solution based on a search object that has these properties:
 //   ```
 function search(criteria = {}, collection) {
-    let retArr = [];
+    let retArr =[]
     if (criteria.artist === undefined) {
         return collection
     } else {
         for (let album of collection) {
             if (album.artist === criteria.artist && album.year === criteria.year){
                 for (let track of album.trackList){
-                    if (track === criteria.trackName)
-                    retArr.push(album);
+                    console.log('track =', track)
+                    console.log('search track', criteria.trackName)
+                    if (track == criteria.trackName)
+                        retArr = album
                 }
             }
         }
@@ -104,6 +106,8 @@ console.log('Should return nothing');
 console.log(search({artist: 'Silversun Pickups', year: 2002}, collection));
 console.log('Should return collection');
 console.log(search({}, collection))
+console.log('Should return silversun pickups')
+console.log(search({artist: 'Silversun Pickups', year: 2015, trackName: '2. Connection : 4:34'}, collection))
 // - Add an array of `tracks` to your album objects. Each track should have a `name` and `duration`. You will need to update the functions to support this new property:
 //   - Update the `addToCollection` function to also take an input parameter for the array of tracks.
 //   - Update `search` to allow a `trackName` search criteria.
@@ -116,26 +120,31 @@ console.log(search({}, collection))
 //     TITLE by ARTIST, published in YEAR:
 //     1. NAME: DURATION
 //     2. NAME: DURATION
-function addTrack(library) {
-    let record = prompt('What album? ');
-    for (let album of library) {
-        if (album.title == record) {
-            let trackNum = prompt("What is the track number? ")
-            let trackName = prompt('What is the song? ');
-            let trackDur = prompt('How long is it? ');
-            if (album.trackList[0] === 'None Listed'){
-                album.trackList = [trackNum + '. ' + trackName + ': ' + trackDur]
-                return album;
-            }
-            else {
-                album.trackList.push([trackNum + '. ' + trackName + ' ' + trackDur])
-                return album
-            }
-        }
-    }
-    return console.log('The track could not be added')
-}
 
-addTrack(collection)
+
+
+
+
+// function addTrack(library) {
+//     let record = prompt('What album? ');
+//     for (let album of library) {
+//         if (album.title == record) {
+//             let trackNum = prompt("What is the track number? ")
+//             let trackName = prompt('What is the song? ');
+//             let trackDur = prompt('How long is it? ');
+//             if (album.trackList[0] === 'None Listed'){
+//                 album.trackList = [trackNum + '. ' + trackName + ': ' + trackDur]
+//                 return album;
+//             }
+//             else {
+//                 album.trackList.push([trackNum + '. ' + trackName + ' ' + trackDur])
+//                 return album
+//             }
+//         }
+//     }
+//     return console.log('The track could not be added')
+// }
+
+// addTrack(collection)
 
 
