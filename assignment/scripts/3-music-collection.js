@@ -83,7 +83,7 @@ function search(criteria = {}, collection) {
         for (let album of collection) {
             if (album.artist === criteria.artist && album.year === criteria.year){
                 for (let track of album.trackList){
-                    if (track === trackName)
+                    if (track === criteria.trackName)
                     retArr.push(album);
                 }
             }
@@ -97,7 +97,7 @@ function search(criteria = {}, collection) {
 //     - If no results are found, return an empty array.
 //     - If there is no search object or an empty search object provided as input, then return all albums in the `collection`.
 console.log('should return Logic album');
-console.log(search({artist: 'Logic', year: 2016}, collection));
+console.log(search({artist: 'Logic', year: 2016, trackName: 'None Listed'}, collection));
 console.log('Should return nothing');
 console.log(search({artist: 'Cold War Kids', year: 2022}, collection));
 console.log('Should return nothing');
@@ -116,3 +116,6 @@ console.log(search({}, collection))
 //     TITLE by ARTIST, published in YEAR:
 //     1. NAME: DURATION
 //     2. NAME: DURATION
+
+
+
