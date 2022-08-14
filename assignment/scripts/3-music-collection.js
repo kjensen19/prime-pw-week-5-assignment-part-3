@@ -40,7 +40,7 @@ console.log('length before:', collection.length)
 function showCollection(collection) {
     console.log('length in showCollection:', collection.length);
     for (let record of collection){
-        console.log(`${record.title} by ${record.artist}, published in ${record.year}, track list:\n${record.trackList.join('\n')}`)
+        console.log(`${record.title} by ${record.artist}, published in ${record.year}, tracks:\n${record.trackList.join('\n')}`)
     }
 }
 // - Test the `showCollection` function.
