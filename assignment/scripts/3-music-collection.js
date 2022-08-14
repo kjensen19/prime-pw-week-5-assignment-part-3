@@ -7,7 +7,7 @@ let collection = [];
 //   - Add the new object to the end of the `collection` array
 //   - Return the newly created object
 
-function addToCollection(title, artist, yearPublished, tracks = []) {
+function addToCollection(title, artist, yearPublished, tracks = ['None Listed']) {
     const album = {
         title: title,
         artist: artist,
@@ -24,7 +24,7 @@ function addToCollection(title, artist, yearPublished, tracks = []) {
 //   - After all are added, console.log the `collection` array.
 
 
-console.log(addToCollection('Better Nature', 'Silversun Pickups', 2015, [['Cradle (Better Nature) : 5:21'], ['Connection : 4:34']]));
+console.log(addToCollection('Better Nature', 'Silversun Pickups', 2015, [['1. Cradle (Better Nature) : 5:21'], ['2. Connection : 4:34']]));
 console.log(addToCollection('Neck Of The Woods', 'Silversun Pickups', 2012));
 console.log(addToCollection('Bobby Tarantino', 'Logic', 2016));
 console.log(addToCollection('Shadows On The Sun', 'Brother Ali', 2003));
@@ -82,7 +82,10 @@ function search(criteria = {}, collection) {
     } else {
         for (let album of collection) {
             if (album.artist === criteria.artist && album.year === criteria.year){
-                retArr.push(album);
+                for (let track of album.trackList){
+                    if (track === trackName)
+                    retArr.push(album);
+                }
             }
         }
     } return retArr;
